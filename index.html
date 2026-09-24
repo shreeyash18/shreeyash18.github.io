@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shreeyash Jadhav — Computer Science Engineering graduate focused on AI/ML, software development and practical technology projects.">
+<title>Shreeyash Jadhav | AI/ML & Software Portfolio</title>
+<style>
+:root{
+  --bg:#050914;--bg2:#0a1020;--card:rgba(15,24,43,.72);--card2:rgba(18,30,53,.84);
+  --text:#f4f8ff;--muted:#9eacc1;--line:rgba(255,255,255,.10);
+  --accent:#67dcff;--accent2:#8f7cff;--max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text);line-height:1.65;
+  background:
+  radial-gradient(circle at 10% 0%,rgba(103,220,255,.13),transparent 27%),
+  radial-gradient(circle at 90% 8%,rgba(143,124,255,.14),transparent 28%),
+  linear-gradient(180deg,var(--bg),#07101e 48%,#050914);
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.25;
+  background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:50px 50px;z-index:-2;
+}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+.container{width:min(var(--max),92%);margin:auto}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,9,20,.72);
+  backdrop-filter:blur(18px);border-bottom:1px solid var(--line)
+}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.2rem;font-weight:900;letter-spacing:.04em}.logo span{color:var(--accent)}
+.navlinks{display:flex;gap:24px;color:var(--muted);font-size:.9rem}
+.navlinks a{transition:.25s}.navlinks a:hover{color:var(--text)}
+.menu{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:7px 10px}
+section{padding:105px 0;position:relative}
+.hero{min-height:100vh;display:grid;align-items:center;padding-top:130px}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:65px;align-items:center}
+.eyebrow{color:var(--accent);font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+h1{font-size:clamp(3.4rem,7vw,6.4rem);line-height:.94;margin:18px 0 24px;letter-spacing:-.055em}
+.gradient{
+  background:linear-gradient(100deg,var(--accent),#fff 48%,var(--accent2));
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.hero-copy{font-size:1.08rem;color:var(--muted);max-width:680px}
+.hero-copy strong{color:#eaf7ff}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;
+  border-radius:13px;border:1px solid var(--line);background:rgba(255,255,255,.045);
+  font-weight:800;transition:transform .25s,box-shadow .25s,background .25s
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.btn.primary{background:linear-gradient(135deg,var(--accent),#7d8cff);color:#04101b;border:0}
+.btn.ghost{background:transparent}
+.hero-photo-wrap{position:relative;display:flex;justify-content:center}
+.hero-photo-wrap::before{
+  content:"";position:absolute;width:76%;height:76%;top:12%;border-radius:50%;
+  background:linear-gradient(135deg,rgba(103,220,255,.22),rgba(143,124,255,.22));
+  filter:blur(50px);z-index:-1
+}
+.hero-photo{
+  width:min(420px,100%);aspect-ratio:4/5;object-fit:cover;object-position:center top;
+  border-radius:34px;border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 35px 90px rgba(0,0,0,.42);transition:transform .8s cubic-bezier(.2,.8,.2,1)
+}
+.hero-photo:hover{transform:translateY(-8px) rotate(.4deg)}
+.floating-card{
+  position:absolute;bottom:24px;left:-15px;padding:15px 18px;border:1px solid var(--line);
+  border-radius:17px;background:rgba(7,13,27,.84);backdrop-filter:blur(16px);box-shadow:0 20px 50px rgba(0,0,0,.3)
+}
+.floating-card b{display:block}.floating-card span{font-size:.78rem;color:var(--muted)}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:36px}
+.section-head h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.035em}
+.section-head p{color:var(--muted);max-width:560px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{
+  border:1px solid var(--line);background:linear-gradient(145deg,rgba(18,30,53,.76),rgba(10,18,34,.70));
+  border-radius:24px;padding:27px;box-shadow:0 20px 65px rgba(0,0,0,.16);
+  transition:transform .35s,border-color .35s,box-shadow .35s
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(103,220,255,.25);box-shadow:0 28px 75px rgba(0,0,0,.25)}
+.card p{color:var(--muted)}
+.profile-mini{display:flex;gap:20px;align-items:center}
+.profile-mini img{width:120px;height:145px;object-fit:cover;object-position:center top;border-radius:18px;border:1px solid var(--line)}
+.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.tag{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.035);color:#d9e7f7;font-size:.84rem}
+.timeline{display:grid;gap:18px}
+.date{color:var(--accent);font-size:.78rem;font-weight:800;letter-spacing:.08em}
+.role{font-size:1.35rem;font-weight:900;margin-top:5px}
+.company{color:var(--muted)}
+.bullets{margin:15px 0 0 18px;color:var(--muted)}.bullets li{margin:7px 0}
+.slider-shell{position:relative;overflow:hidden}
+.slider{display:flex;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.slide{min-width:100%}
+.project-slide{
+  min-height:350px;display:grid;grid-template-columns:1fr .65fr;gap:30px;align-items:center
+}
+.project-number{font-size:5rem;font-weight:900;line-height:1;color:rgba(103,220,255,.14)}
+.project h3{font-size:2rem;margin:8px 0 12px}
+.project p{max-width:680px}
+.slider-controls{display:flex;gap:10px;margin-top:20px}
+.slider-controls button{
+  width:43px;height:43px;border-radius:12px;border:1px solid var(--line);
+  background:rgba(255,255,255,.045);color:var(--text);cursor:pointer;transition:.25s
+}
+.slider-controls button:hover{background:rgba(103,220,255,.12);transform:translateY(-2px)}
+.dots{display:flex;gap:7px;margin-top:18px}.dot{width:28px;height:4px;border-radius:9px;background:rgba(255,255,255,.15);cursor:pointer}.dot.active{background:var(--accent)}
+.resume-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px;align-items:stretch}
+.resume-panel{display:flex;flex-direction:column;justify-content:center}
+.resume-icon{
+  width:64px;height:64px;display:grid;place-items:center;border-radius:18px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04101b;font-weight:900;font-size:1.4rem;margin-bottom:20px
+}
+.resume-frame{min-height:620px;overflow:hidden;padding:10px}
+.resume-frame iframe{width:100%;height:600px;border:0;border-radius:15px;background:#fff}
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px}
+.contact-list{display:grid;gap:14px;margin-top:20px}
+.contact-list a{color:var(--muted);transition:.25s}.contact-list a:hover{color:var(--accent);transform:translateX(4px)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form .full{grid-column:1/-1}
+input,textarea{
+  width:100%;border:1px solid var(--line);background:rgba(255,255,255,.035);color:var(--text);
+  border-radius:13px;padding:13px 14px;outline:none;transition:.25s
+}
+input:focus,textarea:focus{border-color:rgba(103,220,255,.6);box-shadow:0 0 0 4px rgba(103,220,255,.07)}
+textarea{min-height:145px;resize:vertical}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.9rem}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.show{opacity:1;transform:none}
+.delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}
+.progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:200;width:0}
+@media(max-width:850px){
+  .navlinks{display:none;position:absolute;top:74px;left:0;right:0;padding:18px 4%;background:rgba(5,9,20,.96);border-bottom:1px solid var(--line);flex-direction:column;gap:15px}
+  .navlinks.open{display:flex}.menu{display:block}
+  .hero-grid,.grid-2,.resume-grid,.contact-grid{grid-template-columns:1fr}
+  .hero{padding-top:110px}.hero-photo{max-width:380px}.floating-card{left:5px}
+  .project-slide{grid-template-columns:1fr;min-height:400px}.project-number{font-size:3.5rem}
+  .resume-frame{min-height:500px}.resume-frame iframe{height:480px}
+}
+@media(max-width:560px){
+  section{padding:80px 0}.profile-mini{align-items:flex-start}.profile-mini img{width:95px;height:120px}
+  .form{grid-template-columns:1fr}.form .full{grid-column:auto}h1{font-size:3.45rem}
+}
+
+.social-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:18px}
+.social-link{
+  display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--line);
+  border-radius:12px;background:rgba(255,255,255,.035);color:#dce9f7;font-size:.82rem;font-weight:800;
+  transition:transform .25s,border-color .25s,background .25s,color .25s
+}
+.social-link:hover{transform:translateY(-3px);border-color:rgba(103,220,255,.38);background:rgba(103,220,255,.07);color:var(--accent)}
+.social-icon{width:20px;height:20px;display:grid;place-items:center;font-size:.9rem;font-weight:900}
+.social-icon svg{width:19px;height:19px;fill:currentColor}
+
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<nav>
+  <div class="container nav">
+    <a class="logo" href="#home">SJ<span>.</span></a>
+    <div class="navlinks" id="navlinks">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#education">Education</a>
+      <a href="#projects">Projects</a><a href="#resume">Resume</a><a href="#contact">Contact</a>
+    </div>
+    <button class="menu" id="menu" aria-label="Open navigation">☰</button>
+  </div>
+</nav>
+
+<main id="home">
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">Computer Engineering • AI / ML</div>
+      <h1>Shreeyash<br><span class="gradient">Jadhav</span></h1>
+      <p class="hero-copy">
+        Computer Engineering graduate with hands-on experience in <strong>Python, Machine Learning,
+        Deep Learning, software development and REST APIs</strong>. I build practical technology solutions
+        with a focus on problem solving, clean implementation and continuous learning.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">Explore My Work ↓</a>
+        <a class="btn" href="./resume.pdf" target="_blank">View Resume ↗</a>
+      </div>
+      <div class="social-row" aria-label="Social and contact links">
+        <a class="social-link" href="https://www.linkedin.com/in/shreeyash-jadhav-22260225a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <span class="social-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.68H9.35V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.48v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM3.56 20.45h3.57V8.99H3.56v11.46z"/></svg>
+          </span> LinkedIn
+        </a>
+        <a class="social-link" href="https://www.instagram.com/shreeyas_18/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <span class="social-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6zm8.65 1.5a1.35 1.35 0 1 1 0 2.7 1.35 1.35 0 0 1 0-2.7zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+          </span> Instagram
+        </a>
+        <a class="social-link" href="mailto:shreeyashjadhav18@gmail.com" aria-label="Email">
+          <span class="social-icon">✉</span> Email
+        </a>
+        <a class="social-link" href="tel:+919527398010" aria-label="Phone">
+          <span class="social-icon">☎</span> +91 9527398010
+        </a>
+       
+      </div>
+
+    </div>
+    <div class="hero-photo-wrap reveal delay-2">
+      <img class="hero-photo" src="./profile.png" alt="Shreeyash Jadhav in formal attire">
+      <div class="floating-card"><b>Open to opportunities</b><span>AI/ML • Software • Technical Support</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+<div class="container">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">01 — Profile</div><h2>About Me</h2></div>
+    <p>A focused portfolio built around my education, experience, technical skills and projects.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card reveal">
+      <div class="profile-mini">
+        <img src="./profile.png" alt="Shreeyash Jadhav">
+        <div><h3>AI/ML & Software Development</h3><p style="margin-top:7px">Interested in applying AI and ML to real problems while building reliable software and APIs.</p></div>
+      </div>
+      <p style="margin-top:20px">My project work includes ML-based audio fingerprinting for noisy environments, alongside full-stack application development experience.</p>
+    </div>
+    <div class="card reveal delay-1" id="skills">
+      <h3>Technical Skills</h3>
+      <div class="tags">
+        <span class="tag">Machine Learning</span><span class="tag">Deep Learning</span><span class="tag">Python</span>
+        <span class="tag">CNN</span><span class="tag">Denoising Autoencoder</span><span class="tag">TensorFlow</span>
+        <span class="tag">Scikit-learn</span><span class="tag">NumPy</span><span class="tag">Pandas</span>
+        <span class="tag">C++</span><span class="tag">Java</span><span class="tag">JavaScript</span>
+        <span class="tag">Node.js</span><span class="tag">REST APIs</span><span class="tag">MySQL</span>
+        <span class="tag">MongoDB</span><span class="tag">Linux</span><span class="tag">AWS EC2</span><span class="tag">Git</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="experience">
+<div class="container">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">02 — Experience</div><h2>Professional Experience</h2></div>
+    <p>Hands-on software engineering experience from my resume.</p>
+  </div>
+  <div class="timeline">
+    <div class="card reveal">
+      <div class="date">MAY 2025 — JUL 2025</div>
+      <div class="role">Software Engineering Intern</div>
+      <div class="company">Arrow Technologies & Solution • On-site</div>
+      <ul class="bullets">
+        <li>Developed a full-stack furniture e-commerce application using React, Node.js, Express.js and MySQL/MongoDB.</li>
+        <li>Implemented product viewing, shopping cart, order handling and stock monitoring.</li>
+        <li>Created REST APIs for user login and role-based permissions for administrators and normal users.</li>
+        <li>Designed a responsive front end and improved application usability and server-side performance.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+<section id="education">
+<div class="container">
+  <div class="section-head reveal show">
+    <div><div class="eyebrow">03 — Qualification</div><h2>Education</h2></div>
+    <p>Academic background and qualification details.</p>
+  </div>
+  <div class="timeline">
+    <div class="card reveal show">
+      <div class="role">Engineering — BE in Computer Engineering</div>
+      <div class="company">MET Institute of Engineering</div>
+      <p style="margin-top:8px">Passed with <strong>6.45 CGPA</strong></p>
+    </div>
+
+    <div class="card reveal delay-1 show">
+      <div class="role">Higher Secondary — Science (PCM)</div>
+      <div class="company">K.T.H.M. College (officially known as K.R.T. Arts, B.H. Commerce and A.M. Science College)</div>
+      <p style="margin-top:8px">Passed with <strong>67%</strong></p>
+    </div>
+
+    <div class="card reveal delay-2 show">
+      <div class="role">Schooling — SSC</div>
+      <div class="company">Shining Star Academy, Nashik — Board: SSC</div>
+      <p style="margin-top:8px">Passed with <strong>87%</strong></p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">04 — Selected Work</div><h2>Projects</h2></div>
+    <p>Swipe through selected projects or use the controls below.</p>
+  </div>
+
+  <div class="slider-shell card reveal">
+    <div class="slider" id="slider">
+      <article class="slide">
+        <div class="project-slide">
+          <div><div class="eyebrow">AI / ML</div><h3>ML-Based Audio Fingerprinting</h3>
+          <p>Developed an ML-based audio fingerprinting system to identify audio in noisy and real-world environments. The workflow covers preprocessing, feature extraction, model training, fingerprint generation, hashing, matching and evaluation.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">CNN</span><span class="tag">Librosa</span><span class="tag">Scikit-learn</span></div>
+          <div class="actions"><a class="btn primary" href="https://github.com/shreeyash18/Audio-Fingerprinting" target="_blank">GitHub Repository ↗</a></div></div>
+          <div class="project-number">01</div>
+        </div>
+      </article>
+
+      <article class="slide">
+        <div class="project-slide">
+          <div><div class="eyebrow">NLP</div><h3>Marathi Text Classification</h3>
+          <p>A Marathi-language text classification project focused on processing and classifying Marathi text using a machine-learning/NLP workflow.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Jupyter</span></div>
+          <div class="actions"><a class="btn primary" href="https://github.com/shreeyash18/Marathi-Text-Classification" target="_blank">GitHub Repository ↗</a></div></div>
+          <div class="project-number">02</div>
+        </div>
+      </article>
+
+      <article class="slide">
+        <div class="project-slide">
+          <div><div class="eyebrow">Business Intelligence</div><h3>Business Intelligence Mini Project</h3>
+          <p>A dashboard-oriented analytics project demonstrating business intelligence and data visualization work.</p>
+          <div class="tags"><span class="tag">BI</span><span class="tag">Analytics</span><span class="tag">Dashboards</span></div>
+          <div class="actions"><a class="btn primary" href="https://github.com/shreeyash18/Business-Intelligence-Mini-Project" target="_blank">GitHub Repository ↗</a></div></div>
+          <div class="project-number">03</div>
+        </div>
+      </article>
+
+      <article class="slide">
+        <div class="project-slide">
+          <div><div class="eyebrow">Web Development</div><h3>GymLife Master</h3>
+          <p>An HTML-based gym frontend project demonstrating responsive web interface development.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">Frontend</span></div>
+          <div class="actions"><a class="btn primary" href="https://github.com/shreeyash18/Gymlife-Master" target="_blank">GitHub Repository ↗</a></div></div>
+          <div class="project-number">04</div>
+        </div>
+      </article>
+    </div>
+    <div class="slider-controls">
+      <button id="prev" aria-label="Previous project">←</button><button id="next" aria-label="Next project">→</button>
+    </div>
+    <div class="dots" id="dots"></div>
+  </div>
+</div>
+</section>
+
+<section id="resume">
+<div class="container">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">05 — Resume</div><h2>My Resume</h2></div>
+    <p>Review the complete resume or open it in a new tab.</p>
+  </div>
+  <div class="resume-grid">
+    <div class="card resume-panel reveal">
+      <div class="resume-icon">CV</div>
+      <h3>Professional Resume</h3>
+      <p style="margin-top:10px">Includes education, software engineering internship, AI/ML skills, project experience and relevant strengths.</p>
+      <div class="actions">
+        <a class="btn primary" href="./resume.pdf" target="_blank">Open Resume ↗</a>
+        <a class="btn" href="./resume.pdf" download>Download PDF ↓</a>
+      </div>
+      <div class="tags"><span class="tag">AI / ML</span><span class="tag">Software Development</span><span class="tag">REST APIs</span><span class="tag">Databases</span></div>
+    </div>
+    <div class="card resume-frame reveal delay-1">
+      <iframe src="./resume.pdf#toolbar=0&navpanes=0" title="Shreeyash Jadhav Resume"></iframe>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">06 — Enquiry</div><h2>Let's Work Together</h2></div>
+    <p>For opportunities, project discussions, technical enquiries or collaboration, send a message.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="card reveal">
+      <h3>Contact Details</h3>
+      <p style="margin-top:8px">I’m open to relevant opportunities in AI/ML, software development and technical support.</p>
+      <div class="contact-list">
+        <a href="mailto:shreeyashjadhav18@gmail.com">✉ shreeyashjadhav18@gmail.com</a>
+        <a href="tel:+919527398010">☎ +91 9527398010</a>
+        <span style="color:var(--muted)">📍 Nashik, Maharashtra</span>
+        <a href="https://www.linkedin.com/in/shreeyash-jadhav-22260225a/" target="_blank">💼 LinkedIn ↗</a>
+        <a href="https://github.com/shreeyash18" target="_blank">🐱 GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="card reveal delay-1">
+      <h3>Send an Enquiry</h3>
+      <p style="margin-top:8px">Fill in the details and your email app will open with the enquiry prepared.</p>
+      <form class="form" id="enquiryForm" style="margin-top:20px">
+        <input id="name" type="text" placeholder="Your name" required>
+        <input id="email" type="email" placeholder="Your email" required>
+        <input id="phone" type="tel" placeholder="Phone number">
+        <input id="subject" type="text" placeholder="Enquiry subject" required>
+        <textarea id="message" class="full" placeholder="Tell me about the opportunity, project or enquiry..." required></textarea>
+        <button class="btn primary full" type="submit">Send Enquiry →</button>
+      </form>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer>
+  <div class="container" style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap">
+    <span>© 2026 Shreeyash Jadhav</span><span>Built with a focus on clean design, motion and usability.</span>
+  </div>
+</footer>
+
+<script>
+const navlinks=document.getElementById('navlinks');
+document.getElementById('menu').addEventListener('click',()=>navlinks.classList.toggle('open'));
+document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>navlinks.classList.remove('open')));
+
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}})
+},{threshold:.12});
+reveals.forEach(el=>observer.observe(el));
+
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  const max=document.documentElement.scrollHeight-innerHeight;
+  progress.style.width=(max>0?(scrollY/max)*100:0)+'%';
+},{passive:true});
+
+const slider=document.getElementById('slider');
+const dots=document.getElementById('dots');
+const total=slider.children.length;
+let index=0, timer;
+
+for(let i=0;i<total;i++){
+  const d=document.createElement('span');d.className='dot'+(i===0?' active':'');
+  d.addEventListener('click',()=>go(i));dots.appendChild(d);
+}
+function go(i){
+  index=(i+total)%total;
+  slider.style.transform=`translateX(-${index*100}%)`;
+  [...dots.children].forEach((d,n)=>d.classList.toggle('active',n===index));
+  reset();
+}
+function next(){go(index+1)} function prev(){go(index-1)}
+document.getElementById('next').onclick=next;
+document.getElementById('prev').onclick=prev;
+function reset(){clearInterval(timer);timer=setInterval(next,6500)}
+reset();
+
+let startX=0;
+slider.addEventListener('touchstart',e=>startX=e.touches[0].clientX,{passive:true});
+slider.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-startX;
+  if(Math.abs(dx)>45) dx<0?next():prev();
+},{passive:true});
+
+document.getElementById('enquiryForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const subject=document.getElementById('subject').value.trim();
+  const message=document.getElementById('message').value.trim();
+  const body=`Name: ${name}\nEmail: ${email}\nPhone: ${phone||'Not provided'}\n\nEnquiry:\n${message}`;
+  window.location.href=`mailto:shreeyashjadhav18@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+</script>
+</body>
+</html>
